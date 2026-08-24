@@ -43,7 +43,9 @@ public class DataStreamJob {
 		StreamExecutionEnvironment env =
 				StreamExecutionEnvironment.getExecutionEnvironment();
 
-		// Start with ONE parallel instance
+		// Next, we should make the cluster fail to satisfy a parallelism request,
+		// then add capacity and watch Flink recover.
+		// This will make Parallelism → Slots → TaskManagers very concrete.
 		env.setParallelism(4);
 
 		// Keep operators separate so they are easier to inspect in Web UI
