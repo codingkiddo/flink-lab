@@ -20,4 +20,7 @@ services:
       - |
         FLINK_PROPERTIES=
         jobmanager.rpc.address: jobmanager
+        restart.strategy.type: fixed-delay
+        restart.strategy.fixed-delay.attempts: 100
+        restart.strategy.fixed-delay.delay: 5s
         taskmanager.numberOfTaskSlots: 2
